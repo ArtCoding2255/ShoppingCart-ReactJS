@@ -6,17 +6,20 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import About from './pages/About';
 import Store from './pages/Store';
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/store" element={<Store />} />
-      </Routes>
+      <ShoppingCartProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/store" element={<Store />} />
+        </Routes>
+      </ShoppingCartProvider>
     </BrowserRouter>
   );
 }
